@@ -31,3 +31,6 @@ Os scripts usam mocks e não consomem chamadas reais dos provedores. Veja no sav
 
 ## Arquitetura
 React/TypeScript com Vinext/Vite, Tailwind e componentes Shadcn. Runtime Cloudflare Workers/D1 com adaptações de Sites. A migração para outra hospedagem requer adaptar essas dependências; trocar a ferramenta de IA não exige mudar a aplicação.
+
+## Página comercial
+A apresentação está em `/conheca`, com jornadas, telas, vídeos e contato direto pelo WhatsApp. A demonstração continua em `/`. Os arquivos da página ficam em `app/conheca/` e os materiais em `public/apresentacao/`.
