@@ -1,7 +1,8 @@
 # Marketing do Vértice
 
-MP4 e capas em `videos/`: peças criadas em 29/10/2026, versionadas no mesmo repositório e servidas em `/marketing/videos/`.
+MP4 e capas em `videos/`: peças criadas em 29 e 31/10/2026, versionadas no mesmo repositório e servidas em `/marketing/videos/`.
 
+- `vertice-pitch-negocio-20s.mp4`: visão do negócio do professor, alunos, academias, contratos e Nexo (20 s). Publicado como abertura da seção em 31/10/2026.
 - `vertice-personal-15s.mp4`: aluno → cadastro → condições → contrato em PDF (15 s).
 - `vertice-professor-academias-20s.mp4`: rotina entre academias e alunos → parcerias e condições → contrato em PDF (20 s).
 

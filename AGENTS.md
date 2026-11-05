@@ -3,7 +3,7 @@
 Este repositório contém o Vértice Wellness Hub. Responda ao responsável em português brasileiro.
 
 ## Comece aqui
-1. Leia `SAVEPOINT.md`: objetivo, arquitetura, evidências e próxima etapa.
+1. Leia `SAVEPOINT.md`, começando por Estado atual para retomada, dependências e inventário de marketing; os registros históricos vêm depois.
 2. Leia `JORNADAS.md`: comportamento esperado e critérios de validação.
 3. Confira `git status` e os arquivos relevantes à tarefa. Preserve alterações existentes.
 4. Consulte `README.md` para executar. Não é necessário ler todos os componentes para começar.
@@ -37,3 +37,6 @@ npm run build
 Os dois scripts usam mocks e SQLite em memória; não substituem E2E. Registre falhas de ambiente separadamente de falhas do produto.
 
 Este arquivo é independente de fornecedor de IA. Se uma ferramenta não carregar AGENTS.md automaticamente, peça que o leia explicitamente antes de trabalhar.
+
+## Troca de agente e sincronização
+O GitHub é suficiente para continuar o código; leia no SAVEPOINT as dependências específicas de Sites/Cloudflare e o inventário dos arquivos somente locais. Confira git remote -v antes de publicar: o histórico do GitHub e o da fonte Sites são distintos. Não copie segredos nem use force-push para conciliá-los.

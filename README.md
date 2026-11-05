@@ -33,4 +33,7 @@ Os scripts usam mocks e não consomem chamadas reais dos provedores. Veja no sav
 React/TypeScript com Vinext/Vite, Tailwind e componentes Shadcn. Runtime Cloudflare Workers/D1 com adaptações de Sites. A migração para outra hospedagem requer adaptar essas dependências; trocar a ferramenta de IA não exige mudar a aplicação.
 
 ## Página comercial
-A apresentação está em `/conheca`, com jornadas, telas, vídeos e contato direto pelo WhatsApp. A demonstração continua em `/`. Os arquivos da página ficam em `app/conheca/` e os materiais em `public/apresentacao/`.
+A apresentação está em `/conheca`, com jornadas, telas, vídeos e contato direto pelo WhatsApp. A demonstração continua em `/`. Os arquivos da página ficam em `app/conheca/` e os vídeos atuais e capas em `public/marketing/videos/`, e as capturas/peças anteriores em `public/apresentacao/`.
+
+## Retomar em outro agente de IA
+Comece por AGENTS.md e pelo estado atual no topo de SAVEPOINT.md. O clone contém os três vídeos finais da página; projetos editáveis, storyboards e o vídeo de acolhimento permanecem locais (inventário no savepoint). O projeto pode ser editado por outro agente, mas migrar hospedagem exige adaptar Sites/Cloudflare. Segredos de serviços externos não acompanham o clone.

@@ -1,7 +1,29 @@
 # SAVEPOINT — Vértice Wellness Hub
 
-Atualizado: 26/10/2026. Marco: **v0.0.1 — PoC pré review**.
+Atualizado: 05/11/2026. Marco: **v0.0.1 — PoC pré review**.
 Repositório: https://github.com/FelipeLeonardo98/vertice-wellness-hub
+
+
+## Estado atual para retomada — 05/11/2026
+- Site versão 19 publicado com sucesso em 05/11/2026, fonte `a4ce330ea8e84d33ec0b6f3e33dc560547034977`. A tentativa de 31/10 havia parado por limite de uso da ferramenta; essa pendência foi resolvida.
+- Página: https://vertice.felipeferrazleonardo.chatgpt.site/conheca . Acesso público confirmado na configuração e por GET sem autenticação (HTTP 200), com os três vídeos referenciados no HTML. Automação antiga de encerramento em 02/11 está desativada; não foi reativada.
+- Vídeos publicados: pitch do negócio (20 s), personal (15 s), professor/academias (20 s). Permanecem nove jornadas, FAQ e WhatsApp do responsável. O vídeo de acolhimento não está nessa página.
+- Build da fonte publicada passou em 31/10; nesta retomada houve deploy do mesmo artefato salvo e verificação HTTP. Não houve nova validação E2E, reprodução audiovisual ou migração de infraestrutura.
+- Próximo trabalho: revisão e testes E2E das nove jornadas, priorizando demo/pessoal, cadastro → contrato → PDF, assinatura sandbox e Nexo. Limitações do produto abaixo continuam vigentes.
+
+## Retomada por outra IA e dependências
+- Leia AGENTS.md, este resumo e JORNADAS.md. Use README.md para instalar/executar. O clone GitHub contém o código da aplicação e página comercial; nenhum chat anterior é necessário para entender o estado atual.
+- Trocar o agente de IA não exige trocar a hospedagem nem o provedor de IA do aplicativo. Node >=22.13 e npm são necessários; package-lock.json fixa dependências. Os scripts usam caminhos relativos e um clone sem .sites-runtime seleciona portable automaticamente.
+- Dependências específicas: Vinext/Vite, Cloudflare Workers, binding D1 `DB` e migrações em drizzle/, integração Sites em build/, app/chatgpt-auth.ts e lib/connector*. A página comercial não usa uma chamada de IA para ser exibida, mas compartilha o build/runtime da aplicação.
+- Segredos externos: OPENAI_API_KEY, OPENAI_MODEL opcional e ZAPSIGN_SANDBOX_API_TOKEN. Apenas nomes/modelo padrão estão em .env.example; valores reais não estão no GitHub. Sem segredos/binding, integrações externas ficam indisponíveis; a cota de IA falha fechada. Não copiar .env.local nem estado do navegador.
+- Hospedar em outro provedor requer adaptar Workers/D1, autenticação/conectores e build; não presumir Next.js puro. Para publicar no Site atual, são necessários acesso autorizado ao projeto Sites e credenciais temporárias. Os helpers do plugin instalados na máquina não fazem parte do repositório e não são necessários para editar o código ou usar os comandos npm locais.
+- O GitHub tem histórico iniciado por snapshot seguro, diferente do repositório de fonte do Sites. Neste checkout, origin aponta para Sites e github para GitHub. A cópia local output/github-v0.0.1 preserva o histórico GitHub para sincronização; não fazer force-push entre históricos. Em um clone novo do GitHub, origin será naturalmente o GitHub.
+
+## Inventário de marketing e mídia
+- **No GitHub:** app/conheca/ (página e estilos); public/marketing/videos/ (três MP4 publicados e respectivas capas); public/marketing/README.md (mapa); public/apresentacao/ (quatro capturas e três vídeos anteriores com capas); docs/jornadas-para-criativos.md (referência editorial).
+- **Somente na máquina, ignorados pelo Git:** reel/ (fontes Python, trilhas WAV, storyboards, pacotes editáveis, QA, cópias dos masters e vídeo de acolhimento); marketing/jornadas/ (direção visual, prompts e duas imagens); output/ (capturas e artefatos de trabalho); .video-tools/ (ferramentas locais).
+- Caminho local da raiz: C:/Users/ferra/OneDrive/Documentos/ChatGPT/produto-fitness/fitness-professional-os. Um agente com apenas o GitHub terá os vídeos finais publicados, mas não terá os projetos editáveis nem o vídeo de acolhimento. Solicitar esses materiais ao responsável se precisar reeditá-los.
+- Os registros históricos abaixo descrevem entregas locais anteriores; este inventário e o estado atual acima prevalecem quanto à publicação.
 
 ## Ideia central e estágio
 Sistema de gestão do negócio para profissionais independentes de fitness, movimento e fisioterapia: reunir pessoas atendidas, parceiros, locais/aulas, contratos, pendências financeiras e relacionamento num só espaço.
@@ -101,3 +123,26 @@ Separar mudança de agente de IA (ler AGENTS.md e este arquivo) de mudança de i
 - Cards apresentam problema, três passos, resumos textuais e links para jornadas 02 e 03. As nove jornadas continuam disponíveis. Vídeos sob demanda, sem autoplay, identificados como ilustrativos.
 - Página comercial isolada em app/conheca; mídia versionada em public/marketing no mesmo repositório, sem duplicação de binários.
 - Verificação: storyboards das duas peças inspecionados; arquivos finais preservados sem reedição. Build e publicação executados pelo fluxo Sites; não equivale a E2E do aplicativo.
+
+## Motion corrida, luta e acolhimento — 30/10/2026
+- Produzido roteiro aprovado de 20 segundos: uma linha se transforma de pista (Lucas, primeiros 10 km) em luva (Bia, 16 anos) e pessoa em movimento (Helena, 67 anos, condicionamento físico). Os símbolos conectam perfis, perguntas, documentos e contatos.
+- Perguntas: “Você conhece quem treina com você?”, “O que você precisa saber?”, “Quem contatar se precisar?”. Cartões de Anamnese, PAR-Q e contatos: emergência para Lucas, responsável legal para Bia, apoio indicado pela própria Helena. Sem pagamentos ou contratos nesta peça.
+- Fechamento aprovado: “O treino muda. O cuidado continua.” / “Veja como acolher cada aluno.” Identidade e trilha sintetizada original da série, adaptada aos cortes. Sem locução.
+- Arquivo local: `reel/output/acolhimento-motion/vertice-acolhimento-20s.mp4`. Fonte: `reel/render_acolhimento_motion.py`, reutilizando helpers e composição musical de `reel/render_professor_academias.py`. Storyboard de oito quadros, capa, instruções e relatório FFmpeg na pasta da entrega.
+- Verificações executadas: storyboard inspecionado visualmente; 600 quadros, 1080×1920, 30 fps e 20 segundos confirmados; decodificação integral do MP4 H.264/AAC estéreo sem erros; sinal da trilha fonte presente e sem clipping; capa extraída do MP4 e conferida visualmente. Reprodução audiovisual em tempo real não verificada.
+- Cenas ilustrativas e pessoas fictícias identificadas continuamente. Sem selo de aptidão, aprovação médica ou afirmação de persistência integral das respostas dos formulários. Sem alteração funcional, chamadas externas ou publicação nesta entrega; testes da aplicação não executados.
+
+## Motion pitch do negócio do professor — 31/10/2026
+- Entregue roteiro aprovado de 20 segundos: um mesmo professor conectado à Academia Aurora e aos próprios alunos de personal; horários/acordos; duas perguntas, uma por vez; transformação gráfica em cadastros, atuações e contratos; um cartão Nexo; encerramento “Seu trabalho vai além da aula.” / “Veja como organizar seu negócio.”
+- Master local: `reel/output/pitch-negocio-motion/vertice-pitch-negocio-20s.mp4`. Fonte independente: `reel/render_pitch_negocio_motion.py`. A pasta inclui capa, storyboard extraído do master, roteiro, player local, trilha instrumental original sintetizada, instruções, pacote editável e relatórios de QA. Sem locução; 1080×1920, 30 fps, H.264/AAC estéreo, 600 quadros, 20 segundos, faststart; 3,38 MB.
+- Direção: linha contínua entre as relações, mesmo professor ilustrado, cartões com deslocamento/rotação/mudança de escala e organização em registros. A transformação é uma metáfora da organização manual, com “Você registra. Cada relação ganha contexto.”, sem sugerir importação de conversas. Cenas/dados fictícios e produto em piloto identificados na peça.
+- Nexo conferido contra `lib/crm.ts`, `components/crm-opportunities.tsx` e a rota de oportunidades: interesse declarado em corrida, assessoria de corrida confirmada pelo profissional e sugestão para revisão humana. Cartão ilustrativo, sem chamada real, prescrição, envio automático ou garantia comercial.
+- QA visual: oito momentos e doze transições inspecionados antes do master; ajustes de sobreposição, movimento do professor, sombra e conversão BT.709. Storyboard final de oito quadros e capa extraídos do MP4 e inspecionados após a exportação.
+- QA técnico: decodificação integral com FFmpeg `-xerror -err_detect explode`, sem erros, 600 quadros e 20,000 s; faststart confirmado por `moov` antes de `mdat`. AAC decodificado sem clipping, pico −2,43 dBFS, true peak −2,4 dBTP, loudness −17,3 LUFS. Evidências em `verificacao.json`, `verificacao-decodificacao.txt`, `verificacao-audio.txt` e `QA.md` na pasta da entrega.
+- Limite de verificação: reprodução audiovisual em tempo real e escuta subjetiva não confirmadas. O controle do Chrome foi encerrado pela ferramenta por não conseguir confirmar a URL atual com segurança; a revisão prosseguiu por quadros e análise técnica, sem contornar o bloqueio.
+- Entrega local, sem publicação, alteração funcional ou edição da página comercial. Alterações preexistentes de `SAVEPOINT.md` preservadas. `reel` continua ignorado pelo Git; testes da aplicação não executados, pois não houve mudança funcional.
+
+## Pitch na página comercial — 31/10/2026
+- Master e capa de reel/output/pitch-negocio-motion copiados para public/marketing/videos, sem reedição. Inclusão autorizada pelo responsável.
+- Novo vídeo abre a seção /conheca#videos, com apresentação do negócio, três passos, resumo textual e link para as jornadas. Os dois vídeos anteriores permanecem. CTA do topo agora apresenta a proposta em 20 segundos.
+- Storyboard final inspecionado. Mídia ilustrativa e produto piloto identificados; Nexo sujeito à revisão humana. Sem alteração funcional ou chamadas reais aos provedores. Build e publicação seguem pelo fluxo Sites; E2E do aplicativo não faz parte desta alteração editorial.
