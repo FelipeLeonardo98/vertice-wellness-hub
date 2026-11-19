@@ -15,7 +15,7 @@ type Slot = {
   doc: string;
 };
 
-// Semana fictícia, coerente com os vídeos (Aurora, Prisma, Horizonte, Marina, Lucas, Helena).
+// Semana fictícia, coerente com os vídeos (Aurora, Prisma, Studio Hyrox Horizonte, Marina, Lucas, Helena).
 const slots: Slot[] = [
   { id: "aurora", name: "Academia Aurora", what: "Musculação", kind: "academia", days: [0, 2, 4], time: "6h", written: true,
     deal: [["Valor", "R$ 45 por hora"], ["Cobrança", "Mensal, por horas dadas"], ["Vigência", "Até dez/2026"]], doc: "Contrato de parceria em PDF" },
@@ -27,8 +27,8 @@ const slots: Slot[] = [
     deal: [["Valor", "A combinar"], ["Frequência", "2× por semana"], ["Combinado", "Por mensagem, sem contrato"]], doc: "Falta o contrato" },
   { id: "prisma", name: "Studio Prisma", what: "Funcional coletivo", kind: "academia", days: [0, 2, 4], time: "18h", written: true,
     deal: [["Valor", "R$ 100 por hora"], ["Material", "Fornecido pelo estúdio"], ["Cancelamento", "Aviso de 30 dias"]], doc: "Contrato de parceria em PDF" },
-  { id: "horizonte", name: "Horizonte", what: "Musculação", kind: "academia", days: [1, 3, 5], time: "20h", written: false,
-    deal: [["Valor", "Acertado no WhatsApp"], ["Sábados", "Escala com a Aurora"], ["Vigência", "Não definida"]], doc: "Falta o contrato" },
+  { id: "horizonte", name: "Studio Hyrox Horizonte", what: "Treino de Hyrox", kind: "academia", days: [1, 3, 5], time: "20h", written: false,
+    deal: [["Valor", "Acertado no WhatsApp"], ["Sábados", "Simulados de prova"], ["Vigência", "Não definida"]], doc: "Falta o contrato" },
 ];
 
 const dayNames = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
