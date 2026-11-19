@@ -1,6 +1,6 @@
 # SAVEPOINT — Vértice Wellness Hub
 
-Atualizado: 05/11/2026. Marco: **v0.0.1 — PoC pré review**.
+Atualizado: 18/11/2026. Marco: **v0.0.1 — PoC pré review**.
 Repositório: https://github.com/FelipeLeonardo98/vertice-wellness-hub
 
 
@@ -10,6 +10,29 @@ Repositório: https://github.com/FelipeLeonardo98/vertice-wellness-hub
 - Vídeos publicados: pitch do negócio (20 s), personal (15 s), professor/academias (20 s). Permanecem nove jornadas, FAQ e WhatsApp do responsável. O vídeo de acolhimento não está nessa página.
 - Build da fonte publicada passou em 31/10; nesta retomada houve deploy do mesmo artefato salvo e verificação HTTP. Não houve nova validação E2E, reprodução audiovisual ou migração de infraestrutura.
 - Próximo trabalho: revisão e testes E2E das nove jornadas, priorizando demo/pessoal, cadastro → contrato → PDF, assinatura sandbox e Nexo. Limitações do produto abaixo continuam vigentes.
+
+## Próxima release do site de vendas — 18/11/2026 (branch `release/site-vendas-v2`, não publicada)
+- Nova versão de `/conheca` feita para revisão local. O site publicado (versão 19) continua igual. A branch fica no GitHub; nada foi publicado no Sites.
+- **Direção:** a paleta verde + lima dos vídeos virou a cor dominante. Saíram o creme, os títulos em itálico serifado, os rótulos em caixa alta e a numeração decorativa. Tipografia: Archivo variável (`@fontsource-variable/archivo`), condensada nos títulos e normal no texto.
+- **Estrutura:**
+  - Hero com a semana fictícia de um professor: clicar em um horário mostra o combinado (Aurora, Prisma, Horizonte, Marina, Lucas, Helena, coerentes com os vídeos).
+  - Cinco dores na voz do profissional, cada uma com link para o vídeo ou a tela correspondente.
+  - Galeria escura com lightbox: quatro vídeos e quatro prints.
+  - As nove jornadas com status Disponível / Demonstrativo / Em teste / Experimental, no lugar das notas repetidas.
+  - Piloto com o Felipe, FAQ reduzido para 7 perguntas sem duplicatas e sem comparação detalhada com concorrentes, e CTA único “Agendar demonstração” pelo WhatsApp.
+- **Arquivos:** `app/conheca/page.tsx`, `sales.css`, `content.ts` (todo o texto), `week-board.tsx` e `gallery.tsx` (componentes cliente).
+- **Vídeo de acolhimento:** publicado na galeria a partir de `reel/output/acolhimento-motion`, em `public/marketing/videos/vertice-acolhimento-20s.mp4` e `.png`.
+- **Verificações:**
+  - `npm run build` passou.
+  - `test-guardrails` e `test-crm` passaram.
+  - ESLint em `app/conheca` sem erros, com 3 avisos de `<img>`.
+  - Capturas em 1366 px e 390 px, sem rolagem horizontal.
+  - Lightbox aberto por link (`#ver-acolhimento`, `#tela-nexo`) e fechado com Esc; troca de horário no quadro da semana. Nenhum erro no console.
+  - Não houve teste em navegadores reais de celular nem reprodução de áudio.
+- **Pendências:**
+  - Revisão do responsável.
+  - Valores fictícios do quadro (R$ 45/h, R$ 380, R$ 320, R$ 100/h) a confirmar.
+  - Publicar quando a release for aprovada.
 
 ## Retomada por outra IA e dependências
 - Leia AGENTS.md, este resumo e JORNADAS.md. Use README.md para instalar/executar. O clone GitHub contém o código da aplicação e página comercial; nenhum chat anterior é necessário para entender o estado atual.
